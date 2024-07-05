@@ -2,10 +2,11 @@ from dataclasses import dataclass
 import itertools
 import arrow
 from src.interface_adapters.request_info_cnpj.request_info_cnpj_interface import RequestInfoCnpjInterface
+from .interface import RequestDataInterface
 
 
 @dataclass
-class HandleRequestInfoCnpj:
+class HandleRequestInfoCnpj(RequestDataInterface):
     document: str
     request_data: RequestInfoCnpjInterface
 
@@ -15,7 +16,7 @@ class HandleRequestInfoCnpj:
     def execute(self):
         self.get_data()
         self.transform_data()
-        return self.data
+        return {'informacoes_receita_federal': self.data}
 
     def get_data(self):
         self.data = self.request_data.execute(self.document)
