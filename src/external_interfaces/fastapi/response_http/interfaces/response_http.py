@@ -41,6 +41,7 @@ class ResponseHTTP(ABC):
             Objeto JSONResponse com as chaves status_code, message e data.
         """
         data = {} if data is None else data
+        headers = {"Content-Type": "application/json"}
         return JSONResponse(
             status_code=self.status_code,
             content={
@@ -48,4 +49,5 @@ class ResponseHTTP(ABC):
                 "message": self.message,
                 "data": data,
             },
+            headers=headers
         )

@@ -8,9 +8,9 @@ from src.interface_adapters.schemas.response import (
 )
 from src.log import logger
 from ..response_handler import ResponseHTTPHandler
-from src.use_cases.request_data.request_data_cnpj import HandleRequestInfoCnpj
+from src.use_cases.request_data import Runner
 from src.external_interfaces.api.external_api.request_info_cnpj import RequestInfoCnpj
-router = APIRouter(tags=["examples"])
+router = APIRouter(tags=["customer_information"])
 
 
 @router.get(
@@ -31,8 +31,11 @@ def request_data(
     """
     logger.info("[customer_information] - passo: executando a rota GET /customer-information")
     try:
-        handle_request_external_info_cnpj = HandleRequestInfoCnpj(document=document, request_data=RequestInfoCnpj())
-        data = handle_request_external_info_cnpj.execute()
+        runner = Runner(
+            document,
+            RequestInfoCnpj()
+        )
+        data = runner.execute()
         return ResponseHTTPHandler.create(status_code=200, data=jsonable_encoder(data))
     except Exception as exc:
         logger.info(f"[customer_information] - passo: executando a rota GET /customer-information - problema: {exc}")

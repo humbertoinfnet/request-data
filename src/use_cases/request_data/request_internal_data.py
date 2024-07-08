@@ -1,25 +1,33 @@
 from dataclasses import dataclass
 from faker import Faker
 import random
-from .interface import RequestDataInterface
+from src.log import logger, log
+import inspect
 
 
 @dataclass
-class RequestInternalData(RequestDataInterface):
+class RequestInternalData:
     document: str
 
-    def __pos_init__(self):
+    __name__ = 'RequestInternalData'
+
+    def __post_init__(self):
         self.data: dict
         self.fake = Faker()
 
     def execute(self):
-        self.get_data()
-        return self.data
+        try:
+            logger.info(log.info(self.__name__, inspect.currentframe().f_code.co_name))
+            self.get_data()
+            return self.data
+        except Exception as err:
+            logger.error(log.error(self.__name__, inspect.currentframe().f_code.co_name, err))
+        return {}
 
     def get_data(self):
         self.data = {
             'informacoes_cadastrais': self.simulate_data_cadastral_info(),
-            'informacoes_transacionais': self.simulate_data_cadastral_info()
+            'informacoes_transacionais': self.simulate_data_transaction()
         }
 
     def simulate_data_cadastral_info(self):
