@@ -22,14 +22,14 @@ except Exception as error:
     logger.error(f"Leitura versão falhou: {error} - utilizando valor default: 1.0.0")
 
 app = FastAPI(
-    title="Python Base",
-    description="Estrutura default para projetos Python",
+    title="Customer Information",
+    description="Estrutura api para tratamento dos dados do documento",
     version=version_data.get("version", "1.0.0"),
     contact={
         "name": "",
         "email": "",
     },
-    redoc_url="/documentation",
+    redoc_url="/",
     docs_url="/swager",
 )
 
