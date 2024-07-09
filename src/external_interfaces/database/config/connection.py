@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy import URL
 import warnings
 import json
-from flask import current_app
+from src.log import logger
 
 warnings.filterwarnings("ignore")
 
@@ -13,7 +13,7 @@ class DBConnection:
     """Classe responsável por controlar a conexão com o banco de dados utilizando Sqlalchemy
     """
     def __init__(self, database_name) -> None:
-        current_app.logger.info('[DBConnection] - executa método construtor da classe')
+        logger.info('[DBConnection] - executa método construtor da classe')
         self.params = self.get_params(database_name)
         self.session = self.__get_session()
 
@@ -24,7 +24,7 @@ class DBConnection:
         """Método responsável por criar a conexão com o banco
         """
 
-        current_app.logger.info('[DBConnection] - executa método get_session')
+        logger.info('[DBConnection] - executa método get_session')
         url = self.create_connection_url()
         engine = create_engine(url, pool_recycle=3600)
         session = sessionmaker(bind=engine)
@@ -34,7 +34,7 @@ class DBConnection:
         """Método responsável por buscar os parâmetros de conexão
         """
 
-        current_app.logger.info('[DBConnection] - executa método get_params')
+        logger.info('[DBConnection] - executa método get_params')
         with open(f'src/external_interfaces/database/config/connections.json') as arq:
             params = json.load(arq)
         return params.get(database_name)
@@ -43,7 +43,7 @@ class DBConnection:
         """Método responsável por criar a url de conexão
         """
 
-        current_app.logger.info('[DBConnection] - executa método create_connection_url')
+        logger.info('[DBConnection] - executa método create_connection_url')
         return URL.create(
             drivername=self.params.get('dialect'),
             username=self.params.get('username'),
