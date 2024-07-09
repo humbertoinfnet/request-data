@@ -10,6 +10,7 @@ from src.log import logger
 from ..response_handler import ResponseHTTPHandler
 from src.use_cases.request_data import Runner
 from src.external_interfaces.api.external_api.request_info_cnpj import RequestInfoCnpj
+
 router = APIRouter(tags=["customer_information"])
 
 
@@ -20,7 +21,7 @@ router = APIRouter(tags=["customer_information"])
         500: {"model": ResponseError},
     },
 )
-def request_data(
+def customer_information(
     document: str = Query(
         default=...,
         description="Documento do cliente (somente números)",
