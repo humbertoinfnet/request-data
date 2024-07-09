@@ -42,3 +42,15 @@ class Logger:
         file_handler = logging.FileHandler('src/log/app.log', encoding='utf-8')
         file_handler.setFormatter(formatter)
         return file_handler
+
+class ConfigLogger:
+
+    @classmethod
+    def info(self, name_class, name_func, text_add=''):
+        if text_add:
+            return f"[{name_class}] - passo: execucao do metodo {name_func} | {text_add}"
+        return f"[{name_class}] - passo: execucao do metodo {name_func}"
+
+    @classmethod
+    def error(self, name_class, name_func, exc=''):
+        return f"[{name_class}] - passo: execucao do metodo {name_func} - problema: {exc}"
