@@ -26,8 +26,8 @@ app = FastAPI(
     description="Estrutura api para tratamento dos dados do documento",
     version=version_data.get("version", "1.0.0"),
     contact={
-        "name": "",
-        "email": "",
+        "name": "Humberto",
+        "email": "humberto.carvalho@al.infnet.edu.br",
     },
     redoc_url="/",
     docs_url="/swager",
