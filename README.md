@@ -47,7 +47,7 @@ No terminal, clone o projeto:
 
 ```bash
 # Clonar o projeto
-git clone https://github.com/humbertoinfnet/desenvolvimento-fullstack-basico.git
+git clone https://github.com/humbertoinfnet/request-data.git
 ```
 ## Utilizando VENV
 Recomenda-se o uso de um ambiente virtual (virtualenv) para isolar as dependências do projeto. Para configurar e ativar um ambiente virtual, execute os seguintes comandos no terminal:
