@@ -49,7 +49,7 @@ No terminal, clone o projeto:
 # Clonar o projeto
 git clone https://github.com/humbertoinfnet/desenvolvimento-fullstack-basico.git
 ```
-
+## Utilizando VENV
 Recomenda-se o uso de um ambiente virtual (virtualenv) para isolar as dependências do projeto. Para configurar e ativar um ambiente virtual, execute os seguintes comandos no terminal:
 ```bash
 # Instalar o virtualenv, se ainda não estiver instalado
@@ -68,11 +68,24 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Rodando a aplicação: 
+Rodando a aplicação com venv: 
 
 ```bash
-# No diretório raiz do poprojeto executar o comando
+# No diretório raiz do projeto executar o comando
 python app.py
+```
+## Utilizando Docker
+Criando imagem docker:
+```bash
+# Instalar o virtualenv, se ainda não estiver instalado
+sudo docker build -t request-data .
+```
+
+Rodando a aplicação com docker: 
+
+```bash
+# No diretório raiz do projeto executar o comando
+docker run -p 3001:3001 request-data
 ```
 
 ## Estrutura do Projeto
@@ -84,14 +97,14 @@ python app.py
 |               |                      | database/     |                 | Código relacionado ao banco de dados                                   |
 |               |                      |               | controllers/    | Lógica de execução das consultas SQL                                   |
 |               |                      |               | models/         | Definição dos modelos de tabelas                                       |
-|               |                      | flask_server/ |                 | Códigos relacionado ao Flask                                           |
+|               |                      | fastapi/      |                 | Códigos relacionado ao FastApi                                         |
 |               |                      |               | routers/        | Definição das rotas da API                                             |
 |               |                      |               | app             | Configurações do servidor Flask                                        |
 |               |                      |               | register_route  | Código para registrar as rotas                                         |
 |               | interface_adapters/  |               |                 | Códigos que fazem a interface entre casos de uso e aplicações externas |
 |               | log/                 |               |                 | Configuração dos logs                                                  |
 |               | use_case/            |               |                 | Casos de uso do projeto                                                |
-|               |                      | motor/        |                 | Lógica dos casos de uso relacionados ao motor                          |
+|               |                      | request_data/ |                 | Lógica dos casos de uso relacionados ao request_data                   |
 | app           |                      |               |                 | Arquivos específicos da aplicação principal                            |
 | requirements  |                      |               |                 | Lista de dependências do projeto                                       |
 | gitignore     |                      |               |                 | Arquivo para especificar arquivos e diretórios que devem ser ignorados pelo git |
