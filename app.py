@@ -6,7 +6,7 @@ if __name__ == "__main__":
     uvicorn.run(
         app,
         host="0.0.0.0",  # nosec
-        port=3000,
+        port=3001,
         reload=False,
         log_config=uvicorn.config.LOGGING_CONFIG,
     )

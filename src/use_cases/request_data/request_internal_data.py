@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from faker import Faker
 import random
+import arrow
 from src.log import logger, log
 import inspect
 
@@ -31,8 +32,11 @@ class RequestInternalData:
         }
 
     def simulate_data_cadastral_info(self):
+        account_opening = self.fake.date_this_decade(before_today=True)
+        account_age = (arrow.now() - arrow.get(account_opening)).days
         return {
-            'abertura_conta': self.fake.date_this_decade(),
+            'abertura_conta': account_opening,
+            'tempo_conta': account_age,
             'categoria_conta': random.choice(['pequena', 'normal', 'grande']),
             'classficacao_conta': random.choice(['A', 'B', 'C','D','E','Fraude']),
         }
