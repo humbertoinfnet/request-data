@@ -21,16 +21,10 @@
 
 ## Visão Geral da Solução
 
-Na solução, foram criadas três elementos principais:
+Na solução, foi criado um endpoint para requisição dos dados:
 
-- Políticas
-- Camadas
-- Regras
+- customer_information
 
-Além disso, foram criados dois elementos auxiliares:
-
-- Associação de Política com Camada
-- Associação de Camada com Regra
 
 ## Pré-requisitos
 
@@ -38,11 +32,7 @@ Além disso, foram criados dois elementos auxiliares:
 
 ## Funcionalidades
 
-:heavy_check_mark: Políticas: Criação | Edição | Delete | Busca
-
-:heavy_check_mark: Camadas: Criação | Edição | Delete | Busca
-
-:heavy_check_mark: Regras: Criação | Edição | Delete | Busca
+:heavy_check_mark: customer_information: Requisição de dados de documento PJ
 
 No terminal, clone o projeto: 
 
