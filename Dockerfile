@@ -13,5 +13,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia todo o conteúdo do diretório atual para o diretório de trabalho no contêiner
 COPY . .
 
+EXPOSE 3001
+
 # Comando a ser executado ao iniciar o contêiner
 CMD [ "python", "./app.py" ]
