@@ -1,8 +1,9 @@
-<h1>Projeto Full-Stack-Basico Back-End</h1> 
+<h1>Projeto Request-Data</h1> 
 
-- Projeto que contempla o MVP para o primeiro modulo da PÓS GRADUAÇÃO de Engenharia de Software da PUC
-- O MVP pensado nesse modulo é um projeto de cadastro de políticas
-- O projeto consiste em cadastrar, atualizar e desativar regras, políticas e demais componentes
+- Projeto que contempla o MVP para o modulo de arquitetura de software da PÓS GRADUAÇÃO de Engenharia de Software da PUC
+- Esse sistema foi projeto pensando na requisição dos dados de usuário
+- Foi utilizado uma API externa para requisição de dados da Receita Federal: https://cnpjs.dev/docs/api-http/
+- Para simulação dos dados do cliente foi utilizado a biblioteca Faker: https://faker.readthedocs.io/en/master/
 
 
 [![PyPI](https://img.shields.io/pypi/pyversions/apache-superset.svg?maxAge=2592000)](https://pypi.python.org/pypi/apache-superset)
