@@ -78,6 +78,9 @@ Rodando a aplicação com docker:
 # No diretório raiz do projeto executar o comando
 docker run -p 3001:3001 request-data
 ```
+## Documentação:
+1. Redoc: http://localhost:3001
+2. Swager: http://localhost:3001/swager
 
 ## Estrutura do Projeto
 | Diretorio       | Diretorio              | Diretorio       | Diretorio         | Descrição                                                      |  
